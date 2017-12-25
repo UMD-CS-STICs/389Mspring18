@@ -4,11 +4,12 @@
 
 Students will be provided with a practical and lightly theoretical understanding of the most popular algorithms that solve the Simultaneous Localization and Mapping (SLAM) problem to enable self driving car technology. An emphasis will be placed on the probabilistic methods that underpin the SLAM problem.
 
-## Course Goals
+## Learning objectives
 
-- Understand the challenges of noisy measurement
-- Understand probability as a way to quantify uncertainty
-- Understand the different approaches to the SLAM problem and thier tradeoffs
+By the end of the course, students will understand
+- the challenges of noisy measurement
+- probability as a way to quantify uncertainty
+- the different approaches to the SLAM problem and thier tradeoffs
 
 ## Course Topics
 1. Localization with Bayesian Filters
@@ -27,39 +28,46 @@ Students will be provided with a practical and lightly theoretical understanding
 - **Location:** CSI 3118
 - **Semester:** Spring 2018
 - **Textbook:** None
-- **Extra Reading:** Probabilistic Robotics by Thrun, Burgard, and Fox
-- **Course Facilitators:** Michael Stevens, Ishaan Parikh
-- **Faculty Advisor:** Dr. Larry Davis
+- **Extra Reading:** [Probabilistic Robotics](http://www.probabilistic-robotics.org/) by Thrun, Burgard, and Fox
+- **Course Facilitators:** [Michael Stevens](https://www.linkedin.com/in/michael-stevens-268074123/), [Ishaan Parikh](https://www.linkedin.com/in/iparikh/)
+- **Office Hours:** TBA
+- **Faculty Advisor:** [Dr. Larry Davis](https://www.cs.umd.edu/people/lsdavis)
+- **Links**: \[[Piazza](#)\]\[[Testudo](https://ntst.umd.edu/soc/search?courseId=CMSC389M&sectionId=&termId=201801&_openSectionsOnly=on&creditCompare=&credits=&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on)\]
 
 ## Schedule
-| Week | Topic                               | Homework | Project |
+| Week | Topic                               | Homework | Project Checkpoints Due|
 | ---- | ----------------------------------- | -------- | ------- |
-| 1    | Introduction and probability review | 1        |         |
-| 2    | Total probability and Bayes Theorem |          |         |
-| 3    | Histogram Filter 1                  | 2        |         |
+| 1    | Introduction + Probability Intuition | 1 OUT       |         |
+| 2    | Total Probability + Bayes Theorem |          |    |
+| 3    | Histogram Filter 1                  | 1 DUE, 2 OUT |         |
 | 4    | Histogram Filter 2                  |          |         |
-| 5    | Kalman Filter 1                     | 3        | Part 1 due |
+| 5    | Kalman Filter 1                     | 2 DUE, 3 OUT        | Part 1 |
 | 6    | Kalman Fitter 2                     |          |         |
-| 7    | Particle Filter 1                   | 4        | Part 2 due |
-| 8    | Particle Filter 2 and Review        |          |         |
-| 9    | Midterm                             |          |         |
-| 10   | SLAM overview and correspondence problem | 6   | Part 3 due |
-| 11   | Extended Kalman Filter SLAM 1       | 7        |         |
+| 7    | Particle Filter 1                   | 3 DUE, 4 OUT        | Part 2 |
+| 8    | Particle Filter 2 + Review        |  4 DUE|         |
+| 9    | Midterm                             |           |         |
+| 10   | SLAM Overview + Correspondence Problem | 5 OUT   | Part 3 |
+| 11   | Extended Kalman Filter SLAM 1       | 5 DUE, 6 OUT        |         |
 | 12   | Extended Kalman Filter SLAM 2       |          |         |
 | 13   | Extended Kalman Filter SLAM 3       |          |         |
-| 14   | FastSLAM 1                          | 8        |         |
-| 15   | FastSLAM 2                          |          | Part 4 due |
+| 14   | FastSLAM 1                          | 6 DUE        |         |
+| 15   | FastSLAM 2                          |          | Part 4 |
 
 ## Project
+
+The project for the semester is implementing the algorithms described in class in a 2D simulated environment. As we continue in the class, we will build on the project. The four parts are broken up into the following:
+
 - Part 1: 2D Histogram Location
 - Part 2: Kalman Filter Tracking
 - Part 3: 3D Particle Filter
 - Part 4: SLAM (TBD)
 
+The checkpoints are due at 11:59 PM on the day of the class listed on the above schedule. Please zip up your project folder and turn it into the submit server.
+
 ## Grading
 | % Total | Assignment            | Description                               |
 | ------- | --------------------- | ----------------------------------------- |
-| 10%      | In lecture quizzes    | Designed to engage. Graded for completion |
+| 10%      | In-class Checkpoints    | Designed to engage students during slideshow presentations. Graded for completion |
 | 25%     | Homeworks             | Short writen assignments. Graded for accuracy |
 | 45%     | Project               | There will be one semester long four part project covering the topics learned in class. |
 | 20%     | Midterm               | Will cover material from the first 8 weeks |
