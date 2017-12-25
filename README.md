@@ -1,4 +1,5 @@
 # CMSC389M: SLAM: Why Robots Don't Crash
+![Particle Filter Localization](https://i.imgur.com/EGzbpMn.png?1)
 
 ## Course Description
 
