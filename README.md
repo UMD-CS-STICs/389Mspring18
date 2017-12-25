@@ -4,23 +4,30 @@
 
 Students will be provided with a practical and lightly theoretical understanding of the most popular algorithms that solve the Simultaneous Localization and Mapping (SLAM) problem to enable self driving car technology. An emphasis will be placed on the probabilistic methods that underpin the SLAM problem.
 
-## Learning objectives
+## Learning Objectives
 
 By the end of the course, students will understand
 - the challenges of noisy measurement
 - probability as a way to quantify uncertainty
 - the different approaches to the SLAM problem and thier tradeoffs
+- how to program the basics of SLAM algorithms using Python
 
 ## Course Topics
-1. Localization with Bayesian Filters
-  1. Histogram Filter
-  2. Kalman Filter
-  3. Particle Fitler
-2. Simultaneous Localization and Mapping
-  1. EKF SLAM
-  2. FastSLAM
+
+- Probability Review
+    + Total Probability
+    + Bayes' Rule
+    + Conditional Probability
+- Localization with Bayesian Filters
+    + Histogram Filter
+    + Kalman Filter
+    + Particle Filter
+- Simultaneous Localization and Mapping
+    + FastSlam
+    + EKF Slam
 
 ## Course Details
+
 - **Course:** CMSC389M
 - **Prerequisites:** CMSC216 and CMSC330
 - **Credits:** 1
