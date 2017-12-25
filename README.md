@@ -39,7 +39,7 @@ By the end of the course, students will understand
 - **Course Facilitators:** [Michael Stevens](https://www.linkedin.com/in/michael-stevens-268074123/), [Ishaan Parikh](https://www.linkedin.com/in/iparikh/)
 - **Office Hours:** TBA
 - **Faculty Advisor:** [Dr. Larry Davis](https://www.cs.umd.edu/people/lsdavis)
-- **Links**: \[[Piazza](#)\]\[[Testudo](https://ntst.umd.edu/soc/search?courseId=CMSC389M&sectionId=&termId=201801&_openSectionsOnly=on&creditCompare=&credits=&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on)\]
+- **Links**: \[[Piazza](https://piazza.com/class/jblmlyocd2x7x)\]\[[Testudo](https://ntst.umd.edu/soc/search?courseId=CMSC389M&sectionId=&termId=201801&_openSectionsOnly=on&creditCompare=&credits=&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on)\]
 
 ## Schedule
 | Week | Topic                               | Homework | Project Checkpoints Due|
