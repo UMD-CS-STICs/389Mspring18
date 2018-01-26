@@ -45,8 +45,8 @@ By the end of the course, students will understand
 ## Schedule
 | Week | Topic                               | Homework | Project Checkpoints Due|
 | ---- | ----------------------------------- | -------- | ------- |
-| 1    | Introduction + Probability Intuition | 1 OUT       |         |
-| 2    | Total Probability + Bayes Theorem |          |    |
+| 1    | Introduction + Probability Intuition |     |         |
+| 2    | Total Probability + Bayes Theorem |    1 OUT  |    |
 | 3    | Histogram Filter 1                  | 1 DUE, 2 OUT |         |
 | 4    | Histogram Filter 2                  |          |         |
 | 5    | Kalman Filter 1                     | 2 DUE, 3 OUT        | Part 1 |
