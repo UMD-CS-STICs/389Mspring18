@@ -44,15 +44,15 @@ By the end of the course, students will understand
 
 ## Schedule
 | Week | Topic                               | Homework | Project Checkpoints Due|
-| ---- | ----------------------------------- | -------- | ------- |
-| 1    | Introduction + Probability Intuition |     |         |
-| 2    | Total Probability + Bayes Theorem |    1 OUT  |    |
-| 3    | Histogram Filter 1                  | 1 DUE, 2 OUT |         |
-| 4    | Histogram Filter 2                  |          |         |
-| 5    | Kalman Filter 1                     | 2 DUE, 3 OUT        | Part 1 |
-| 6    | Kalman Fitter 2                     |          |         |
-| 7    | Particle Filter 1                   | 3 DUE, 4 OUT        | Part 2 |
-| 8    | Particle Filter 2 + Review        |  4 DUE|         |
+| ---- | ----------------------------------- | -------- | -------                |
+| 1    | Introduction + Probability Intuition |         |                        |
+| 2    | Total Probability + Bayes Theorem + Codelab 1| 1 OUT   | |              |           
+| 3    | Histogram Filter 1                  | 1 DUE, 2 OUT       |      OUT     |
+| 4    | Histogram Filter 2                  |          |         |              |
+| 5    | Kalman Filter 1                     | 2 DUE, 3 OUT       |    Part 1    |
+| 6    | Kalman Fitter 2                     |          |         |        |
+| 7    | Particle Filter 1                   | 3 DUE, 4 OUT |     Part 2         |
+| 8    | Particle Filter 2 + Review          |  4 DUE|         |
 | 9    | Midterm                             |           |         |
 | 10   | SLAM Overview + Correspondence Problem | 5 OUT   | Part 3 |
 | 11   | Extended Kalman Filter SLAM 1       | 5 DUE, 6 OUT        |         |
@@ -75,7 +75,7 @@ The checkpoints are due at 11:59 PM on the day of the class listed on the above 
 ## Grading
 | % Total | Assignment            | Description                               |
 | ------- | --------------------- | ----------------------------------------- |
-| 10%      | In-class Checkpoints    | Designed to engage students during slideshow presentations. Graded for completion |
+| 10%      | In-class Worksheets    | Designed to engage students during slideshow presentations. Graded for completion |
 | 25%     | Homeworks             | Short writen assignments. Graded for accuracy |
 | 45%     | Project               | There will be one semester long four part project covering the topics learned in class. |
 | 20%     | Midterm               | Will cover material from the first 8 weeks |
