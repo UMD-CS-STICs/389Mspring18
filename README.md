@@ -38,21 +38,21 @@ By the end of the course, students will understand
 - **Textbook:** None
 - **Extra Reading:** [Probabilistic Robotics](http://www.probabilistic-robotics.org/) by Thrun, Burgard, and Fox
 - **Course Facilitators:** [Michael Stevens](https://www.linkedin.com/in/michael-stevens-268074123/), [Ishaan Parikh](https://www.linkedin.com/in/iparikh/)
-- **Office Hours:** TBA
+- **Office Hours:** Wednesdays, 3:30 - 5PM in Sandbox (3rd floor CSIC)
 - **Faculty Advisor:** [Dr. Larry Davis](https://www.cs.umd.edu/people/lsdavis)
 - **Links**: \[[Piazza](https://piazza.com/class/jblmlyocd2x7x)\]\[[Testudo](https://ntst.umd.edu/soc/search?courseId=CMSC389M&sectionId=&termId=201801&_openSectionsOnly=on&creditCompare=&credits=&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on)\]
 
 ## Schedule
 | Week | Topic                               | Homework | Project Checkpoints Due|
-| ---- | ----------------------------------- | -------- | ------- |
-| 1    | Introduction + Probability Intuition | 1 OUT       |         |
-| 2    | Total Probability + Bayes Theorem |          |    |
-| 3    | Histogram Filter 1                  | 1 DUE, 2 OUT |         |
-| 4    | Histogram Filter 2                  |          |         |
-| 5    | Kalman Filter 1                     | 2 DUE, 3 OUT        | Part 1 |
-| 6    | Kalman Fitter 2                     |          |         |
-| 7    | Particle Filter 1                   | 3 DUE, 4 OUT        | Part 2 |
-| 8    | Particle Filter 2 + Review        |  4 DUE|         |
+| ---- | ----------------------------------- | -------- | -------                |
+| 1    | Introduction + Probability Intuition |         |                        |
+| 2    | Probability Theory + Python Setup/Codelab 1| 1 OUT   | |              |           
+| 3    | Histogram Filter 1                  | 1 DUE, 2 OUT       |      OUT     |
+| 4    | Histogram Filter 2                  |          |         |              |
+| 5    | Kalman Filter 1                     | 2 DUE, 3 OUT       |    Part 1    |
+| 6    | Kalman Fitter 2                     |          |         |        |
+| 7    | Particle Filter 1                   | 3 DUE, 4 OUT |     Part 2         |
+| 8    | Particle Filter 2 + Review          |  4 DUE|         |
 | 9    | Midterm                             |           |         |
 | 10   | SLAM Overview + Correspondence Problem | 5 OUT   | Part 3 |
 | 11   | Extended Kalman Filter SLAM 1       | 5 DUE, 6 OUT        |         |
@@ -75,7 +75,7 @@ The checkpoints are due at 11:59 PM on the day of the class listed on the above 
 ## Grading
 | % Total | Assignment            | Description                               |
 | ------- | --------------------- | ----------------------------------------- |
-| 10%      | In-class Checkpoints    | Designed to engage students during slideshow presentations. Graded for completion |
+| 10%      | In-class Worksheets    | Designed to engage students during slideshow presentations. Graded for completion |
 | 25%     | Homeworks             | Short writen assignments. Graded for accuracy |
 | 45%     | Project               | There will be one semester long four part project covering the topics learned in class. |
 | 20%     | Midterm               | Will cover material from the first 8 weeks |
