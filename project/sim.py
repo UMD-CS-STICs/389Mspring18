@@ -37,8 +37,8 @@ while pygame.QUIT not in (event.type for event in pygame.event.get()):
     hfilter.motion_update(odom)
 
     ## Measurement Update ##
-    detections, corr = robot.detect_landmarks()
-    hfilter.sense_update(detections, corr, odom)
+    detections = robot.detect_landmarks()
+    hfilter.sense_update(detections, odom)
 
     ### Draw World ###
     screen.fill((255, 255, 255))

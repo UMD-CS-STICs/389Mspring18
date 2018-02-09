@@ -21,7 +21,7 @@ class HistogramFilter:
         self.pfalse = robot.pfalse
         self.robot = robot
 
-    def sense_update(self, measurement, corr, odom):
+    def sense_update(self, measurement, odom):
         '''Updates self.belief to reflect the new measurement'''
         # TODO: Insert code here
         pass
@@ -31,17 +31,16 @@ class HistogramFilter:
         # TODO: Insert code here
         pass
 
-    def correspondance(self, potential_x, potential_y, measurements):
+    def correspondance(self, potential_x, potential_y, measurements, odom):
         corr = []
-        for measurement in measurements:
+        for (x, y) in measurements:
             landmark_index, min_dist = -1, float('inf')
             for i, landmark in enumerate(self.landmarks):
-                dist = LA.norm((potential_x + measurement.x - landmark.x,
-                                potential_y + measurement.y - landmark.y))
-                if dist <= self.robot.max_sense_dist and dist < no_dist:
+                dist = (potential_x + x - landmark.x - odom[0])**2 + (potential_y + y - landmark.y - odom[1])**2
+                if dist <= self.max_sense_dist and dist < min_dist:
                     min_dist = dist
                     landmark_index = i
-            corr.append((landmark_index, min_dist))
+            corr.append(landmark_index)
         return corr
 
     def blit(self, surface, camera):

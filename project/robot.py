@@ -29,7 +29,6 @@ class RobotBin(object):
         x = self.x - self.sprite.get_width()/2
         y = self.y - self.sprite.get_height()/2
         surface.blit(self.sprite, (x - self.camera.x, y - self.camera.y))
-        pygame.draw.rect(surface, (0, 0, 255), (self.x_odom - self.camera.x, self.y_odom - self.camera.y, 10, 10))
 
     def move(self, dx, dy, collision_mask, tolerance = 0.001):
         if abs(dx) < tolerance and abs(dy) < tolerance:
@@ -37,8 +36,8 @@ class RobotBin(object):
         new_x = self.x + dx
         new_y = self.y + dy
 
-        offsetx = int(new_x - self.sprite.get_width() / 2 + 0.5)
-        offsety = int(new_y - self.sprite.get_height() / 2 + 0.5)
+        offsetx = int(new_x - self.sprite.get_width() / 2)
+        offsety = int(new_y - self.sprite.get_height() / 2)
 
         if collision_mask and collision_mask.overlap_area(self.mask, (offsetx, offsety)) == 0:
             self.x_odom += new_x - self.x + 0.01 + np.random.normal(scale=abs(dx)*self.x_noise) if dx != 0 else 0
@@ -65,14 +64,12 @@ class RobotBin(object):
 
     def detect_landmarks(self):
         detected = []
-        corr = []
         for i, landmark in enumerate(self.landmarks):
             dist = math.sqrt((self.x - landmark.x)**2 + (self.y - landmark.y)**2)
             if 0 < dist < self.max_sense_dist and random.random() < self.phit:
                 x = self.x_odom + landmark.x - self.x + np.random.normal(scale=self.z_noise)
                 y = self.y_odom + landmark.y - self.y + np.random.normal(scale=self.z_noise)
                 detected.append((x, y))
-                corr.append(i)
 
         for landmark in self.negative_landmarks:
             dist = math.sqrt((self.x - landmark.x)**2 + (self.y - landmark.y)**2)
@@ -80,9 +77,8 @@ class RobotBin(object):
                 x = self.x_odom + landmark.x - self.x + np.random.normal(scale=self.z_noise)
                 y = self.y_odom + landmark.y - self.y + np.random.normal(scale=self.z_noise)
                 detected.append((x, y))
-                corr.append(random.randint(0, len(self.landmark)-1))
 
-        return detected, corr
+        return detected
 
 class RobotCar(object):
     def __init__(self, x, y, theta, img_path, camera):
