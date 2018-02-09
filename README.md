@@ -50,7 +50,7 @@ By the end of the course, students will understand
 | 3    | Codelab + 2D Monte Carlo     | 1 DUE   |      OUT     |
 | 4    | Project Intro + Motion Models              |    2 OUT      | |              |
 | 5    | Kalman Filter 1                     | 2 DUE, 3 OUT       |    Part 1    |
-| 6    | Kalman Fitter 2                     |          |         |        |
+| 6    | Kalman Filter 2                     |          |         |        |
 | 7    | Particle Filter 1                   | 3 DUE, 4 OUT |     Part 2         |
 | 8    | Particle Filter 2 + Review          |  4 DUE|         |
 | 9    | Midterm                             |           |         |
