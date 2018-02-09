@@ -47,8 +47,8 @@ By the end of the course, students will understand
 | ---- | ----------------------------------- | -------- | -------                |
 | 1    | Introduction + Probability Intuition |         |                        |
 | 2    | Probability Theory + Python Setup | 1 OUT   | |              |           
-| 3    | Codelab + Project Intro + 2D Monte Carlo 1     | 1 DUE   |      OUT     |
-| 4    | 2D Monte Carlo 2                  |    2 OUT      |         |              |
+| 3    | Codelab + 2D Monte Carlo     | 1 DUE   |      OUT     |
+| 4    | Project Intro + Motion Models              |    2 OUT      | |              |
 | 5    | Kalman Filter 1                     | 2 DUE, 3 OUT       |    Part 1    |
 | 6    | Kalman Fitter 2                     |          |         |        |
 | 7    | Particle Filter 1                   | 3 DUE, 4 OUT |     Part 2         |
