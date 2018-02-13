@@ -38,3 +38,5 @@ where z_1 through z_n are different landmark observations.
 
 ## Grading
 How the grading will work
+
+Equations by http://quicklatex.com/
