@@ -8,10 +8,10 @@ All simulation code has been provided and should not be modified. If you find a 
 
 ### Prediction Update
 The robot is equiped with sensors that can detect changes in its (x, y) location. The robot automatically integrates this information into the variables x_odom and y_odom to create the odometry coordinate frame. Each change in x and y is independently corrupted with gaussian noise with a standard deviation of |displacement| \* c. So the model is:
-<!--- x_{observed} &= x_{actual} + \mathcal{N}(0, |x_{actual}|*c_x) \\ --->
-<!--- y_{observed} &= y_{actual} + \mathcal{N}(0, |y_{actual}|*c_y) --->
+<!--- x_{observed} &= x_{true} + \mathcal{N}(0, |x_{true}|*c_x) \\ --->
+<!--- y_{observed} &= y_{true} + \mathcal{N}(0, |y_{true}|*c_y) --->
 
-![equation](http://quicklatex.com/cache3/ae/ql_fe730a5f82a3270adaea4b9aef14efae_l3.png)  
+![equation](http://quicklatex.com/cache3/94/ql_300dda2293cf9d58928b2096f735a594_l3.png)  
 
 where c_x and c_y are constants. These constants are provided for you in the constructor of Histogram Filter as x_noise and y_noise. It is recommended that you implement the prediction update as a shift and a convolution. For the shift portion of the update you will have cells along the border of the histogram that don't have any values to shift into them; fill these cells with 0's. Don't do any kind of interpolation on the histogram, just shift the cells as close to the corresponding distance as you can. You are welcome to use any functions in the SciPy library to accomplish this. For the convolution portion, again pad the outside of the histogram with zeros so the belief histogram retains the same size. Use "scipy.ndimage.filters.gaussian_filter" to accomplish this.
 
