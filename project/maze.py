@@ -5,9 +5,6 @@ class Maze(object):
         self.x = x
         self.y = y
         self.sprite = pygame.image.load(img_path)
-        new_width = int(self.sprite.get_width())
-        new_height = int(self.sprite.get_height())
-        self.sprite = pygame.transform.scale(self.sprite, (new_width, new_height))
         self.camera = camera
         self.mask = pygame.mask.from_threshold(self.sprite, (0,0,0), (127, 127, 127))
 
