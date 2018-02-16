@@ -1,3 +1,4 @@
+'''The code for the Histogram Filter. Only the code you write in this file will be graded'''
 import pygame
 import numpy as np
 import math

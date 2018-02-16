@@ -1,3 +1,5 @@
+'''Landmark represents a fixed observable object in the map. Do not modify this file'''
+
 import pygame
 
 class Landmark(object):

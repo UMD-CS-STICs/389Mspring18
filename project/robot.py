@@ -1,3 +1,4 @@
+'''Robot.py simulates noisy robot motion and measurement. Do not modify this file'''
 import pygame
 import numpy as np
 import math

@@ -1,3 +1,7 @@
+'''
+Maze.py draws the maze to the screen and provides collison information.
+Do not modify this file
+'''
 import pygame
 
 class Maze(object):

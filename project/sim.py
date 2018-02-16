@@ -1,3 +1,8 @@
+'''
+The main program for the simulation. You will make some modifications to this file when answering
+questions about the project.
+'''
+
 import pygame
 import math
 import numpy as np
