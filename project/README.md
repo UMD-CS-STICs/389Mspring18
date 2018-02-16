@@ -1,13 +1,13 @@
 # Project 1: Histogram Filter
 ![](https://i.imgur.com/N6srxnr.png)
 ## Introduction
-In this project you will write a Histogram Filter for a 2D simulated environment. The simulation consists of a car, a maze to navigate through, and randomly distributed landmarks (shown in green) that the robot can use to localize. The robot's belief distribution is drawn over the simulation (shown above in red). Once the simulation is started you can control the robot's motion with the arrow keys. Once you correctly impliment the Histogram Filter your robot should be able to localize itself as you navigate through the maze with the arrow keys. Public tests are provided to help you develop the filter.
+In this project you will write a Histogram Filter for a 2D simulated environment. The simulation consists of a car, a maze to navigate through, and randomly distributed landmarks (shown in green) that the robot can use to localize. The robot's belief distribution is drawn over the simulation (shown above in red). Once the simulation is started you can control the robot's motion with the arrow keys. Once you correctly implement the Histogram Filter your robot should be able to localize itself as you navigate through the maze with the arrow keys. Public tests are provided to help you develop the filter.
 
 ## Your Task
-All simulation code has been provided and should not be modified. If you find a problem, please make a piazza post to notify us. Skeleton code for the Histogram Filter has been provided in 'histfilter.py'; make all your modifications in this file. Below you will find the specifications for the motion and sensor models to use in the project. Though you could come up with your own, perfectly valid models, it is important that you impliment the models the way they are specified below so you pass the public tests and your project is graded correctly.
+All simulation code has been provided and should not be modified. If you find a problem, please make a piazza post to notify us. Skeleton code for the Histogram Filter has been provided in 'histfilter.py'; make all your modifications in this file. Below you will find the specifications for the motion and sensor models to use in the project. Though you could come up with your own, perfectly valid models, it is important that you implement the models the way they are specified below so you pass the public tests and your project is graded correctly.
 
 ### Prediction Update
-The robot is equiped with sensors that can detect changes in its (x, y) location. The robot automatically integrates this information into the variables x_odom and y_odom to create the odometry coordinate frame. Each change in x and y is independently corrupted with gaussian noise with a standard deviation of |displacement| \* c. So the model is:
+The robot is equiped with sensors that can detect changes in its (x, y) location. The robot automatically integrates this information into the variables robot.x_odom and robot.y_odom to create the odometry coordinate frame. This "coordinate frame" represents the robots location calculated only through odometry (integrating distance moved). Each change in x and y is independently corrupted with gaussian noise with a standard deviation of |displacement| \* c. So the model is:
 <!--- x_{observed} &= x_{true} + \mathcal{N}(0, |x_{true}|*c_x) \\ --->
 <!--- y_{observed} &= y_{true} + \mathcal{N}(0, |y_{true}|*c_y) --->
 
@@ -34,10 +34,14 @@ However, in addition to not being able to determine the precise location of thes
 where z_1 through z_n are different landmark observations.
 
 ## Questions for When You're Done
-1. Why'd it do this?
-2. Why do that
+1. Move the robot around with the arrow keys until it is sufficiently localized. Now move into an area of the maze where it cannot see any landmarks. As you continue to move in this region without landmarks, what happens to the belief? Why?
+2. Restart the simulation until you get a randomly get a maze where the robot can only see one landmark. What does the belief look like after only a couple observations of that one landmark (hint: if things are going to fast for you to see, in sim.py change clock.tick(10) to something like clock.tick(1) to make time go slower)? Why does this happen? Would this still happen if our correspondence function was able to uniquely identify each landmark? Why?
+3. You should notice that the filter sometimes loses the robot. Can you identify any weakenesses in the measurement model or the map that can explain this?
+4. In sim.py, comment out hfilter.motion_update(odom) so that the filter only performs the measurement update. Move around the maze and try to get the robot to localize. What do you notice? Why is the motion update important?
 
 ## Grading
-How the grading will work
+* 50% score on the public tests
+* 40% answers to the questions
+* 10% visual verifcation by running the simulation
 
 Equations by http://quicklatex.com/
