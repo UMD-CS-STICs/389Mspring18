@@ -1,21 +1,30 @@
-# Project 1: Histogram Filter
+# 1: Histogram Filter
 ![](https://i.imgur.com/N6srxnr.png)
 ## Introduction
-In this project you will write a Histogram Filter for a 2D simulated environment. The simulation consists of a car, a maze to navigate through, and randomly distributed landmarks (shown in green) that the robot can use to localize. The robot's belief distribution is drawn over the simulation (shown above in red). Once the simulation is started you can control the robot's motion with the arrow keys. Once you correctly impliment the Histogram Filter your robot should be able to localize itself as you navigate through the maze with the arrow keys. Public tests are provided to help you develop the filter.
+In this project, you will write a Histogram Filter for a 2D simulated environment. The simulation consists of a car, a maze to navigate through, and randomly distributed landmarks (shown in green) that the robot can use to localize. The robot's belief distribution is drawn over the simulation (shown above in red). Once the simulation is started you can control the robot's motion with the arrow keys. Once you correctly implement the Histogram Filter your robot should be able to localize itself as you navigate through the maze with the arrow keys. Public tests are provided to help you develop the filter.
 
 ## Your Task
-All simulation code has been provided and should not be modified. If you find a problem, please make a piazza post to notify us. Skeleton code for the Histogram Filter has been provided in 'histfilter.py'; make all your modifications in this file. Below you will find the specifications for the motion and sensor models to use in the project. Though you could come up with your own, perfectly valid models, it is important that you impliment the models the way they are specified below so you pass the public tests and your project is graded correctly.
+You will be implementing the sense and move update functions for our simulation. 
 
-### Prediction Update
-The robot is equiped with sensors that can detect changes in its (x, y) location. The robot automatically integrates this information into the variables x_odom and y_odom to create the odometry coordinate frame. Each change in x and y is independently corrupted with gaussian noise with a standard deviation of |displacement| \* c. So the model is:
+**All simulation code has been provided and should not be modified**. If you find a problem, please (please) make a [Piazza](https://piazza.com/class/jblmlyocd2x7x) post to notify us. Skeleton code for the Histogram Filter has been provided in `histfilter.py`; make all your modifications in this file. You can run the simulation by executing `python sim.py` in the main project directory. Below you will find the specifications for the motion and sensor models to use in the project. Though you could come up with your own, perfectly valid models, it is important that you implement the models the way they are specified below so you pass the public tests and your project is graded correctly.
+
+### Setup
+Navigate to the class repository, and activate your virtual environment by running `source 389menv/bin/activate`. In addition, make sure you have scipy, numpy, and pygame. You can install all of these by running `pip install scipy numpy pygame=1.9.2` after activating your virtual environment. If you are having any trouble with this, please post in [Piazza](https://piazza.com/class/jblmlyocd2x7x).
+
+### Prediction (Move) Update
+The first step to localizing our robot is implemeting the prediction, or move, update. The robot is equiped with sensors that can detect changes in its (x, y) location; this is known as an odometer (we went over what this is in [these]() slides). The robot automatically integrates this information into the variables `robot.x_odom` and `robot.y_odom` to create the odometry coordinate frame. This "coordinate frame" represents the robots location calculated only through odometry (integrating distance moved). Each change in x and y is independently corrupted with gaussian noise with a standard deviation of |displacement| \* c. So the model is:
 <!--- x_{observed} &= x_{true} + \mathcal{N}(0, |x_{true}|*c_x) \\ --->
 <!--- y_{observed} &= y_{true} + \mathcal{N}(0, |y_{true}|*c_y) --->
 
 ![equation](http://quicklatex.com/cache3/94/ql_300dda2293cf9d58928b2096f735a594_l3.png)  
 
-where c_x and c_y are constants. These constants are provided for you in the constructor of Histogram Filter as x_noise and y_noise. It is recommended that you implement the prediction update as a shift and a convolution. For the shift portion of the update you will have cells along the border of the histogram that don't have any values to shift into them; fill these cells with 0's. Don't do any kind of interpolation on the histogram, just shift the cells as close to the corresponding distance as you can. You are welcome to use any functions in the SciPy library to accomplish this. For the convolution portion, again pad the outside of the histogram with zeros so the belief histogram retains the same size. Use "scipy.ndimage.filters.gaussian_filter" to accomplish this.
+where c_x and c_y are constants. These constants are provided for you in the constructor of Histogram Filter as x_noise and y_noise. The reason we do this is to simulate the real world. For example, the robot may do `move_right(1)` programatically, but because of variables like drag, tire pressure, and other environmental factors, we may actually move 1 plus or minus a small amount - this is all we are simulating with the noise. 
 
-### Measurement update
+You must implement the prediction update as a shift and a convolution, as described in [these](https://docs.google.com/presentation/d/1xbxx7Kj1RQj1Ny-c5ZrG0NJAHq1z14D6MhKPa9TY9dQ/edit?usp=sharing) slides. For the shift portion of the update, you will have cells along the border of the histogram that do not have any values to shift into them (imagine the top row of a 3x3 matrix after you shift everything down by 1); fill these cells with 0's.  In the project, you will have to handle your robot moving distances that may not be integers. In these cases, feel free to take the `int(distance_travelled)` as the amount to shift your belief by. You are welcome to use any functions in the SciPy library to accomplish this. For the convolution portion, you will need to pad your belief matrix when you apply your filter (to "noisify" your movement) to it. You must do this by padding the outside of the histogram with zeros so the belief histogram retains the same size. Check out the picture below for a visual explanation of padding with zeros. Use "[scipy.ndimage.filters.gaussian_filter](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.ndimage.filters.gaussian_filter.html)" to accomplish this.
+
+![padding](http://machinelearninguru.com/_images/topics/computer_vision/basics/convolution/5.JPG)
+
+### Measurement (Sense) Update
 The robot is equiped with sensors that can detect the (x, y) positions of landmarks *with respect to the robot's odometry.* This means in order to get the position of a detected landmark relative to the center of the robot, you have to first subtract the robot's x_odom and y_odom from the landmark's position. The detected (x, y) location of the robot is corrupted with gaussian noise with a standard devation of z_noise. So the model is:  
 <!--- (y_{observed} &= y_{true} + \mathcal{N}(0, z_{noise}) --->
 ![Equation](http://quicklatex.com/cache3/c9/ql_d17bef13145f5c9e6976b974c6b11bc9_l3.png)
@@ -34,10 +43,14 @@ However, in addition to not being able to determine the precise location of thes
 where z_1 through z_n are different landmark observations.
 
 ## Questions for When You're Done
-1. Why'd it do this?
-2. Why do that
+1. Move the robot around with the arrow keys until it is sufficiently localized. Now move into an area of the maze where it cannot see any landmarks. As you continue to move in this region without landmarks, what happens to the belief? Why?
+2. Restart the simulation until you get a randomly get a maze where the robot can only see one landmark. What does the belief look like after only a couple observations of that one landmark (hint: if things are going to fast for you to see, in sim.py change `clock.tick(10)` to something like `clock.tick(1)` to make time go slower)? Why does this happen? Would this still happen if our correspondence function was able to uniquely identify each landmark? Why?
+3. You should notice that the filter sometimes loses the robot. Can you identify any weakenesses in the measurement model or the map that can explain this?
+4. In `sim.py`, comment out `hfilter.motion_update(odom)` so that the filter only performs the measurement update. Move around the maze and try to get the robot to localize. What do you notice? Why is the motion update important?
 
 ## Grading
-How the grading will work
+* 50% score on the public tests
+* 40% answers to the questions
+* 10% visual verifcation by running the simulation
 
 Equations by http://quicklatex.com/
