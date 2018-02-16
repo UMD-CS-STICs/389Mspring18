@@ -8,9 +8,6 @@ class RobotBin(object):
         self.x = x
         self.y = y
         self.sprite = pygame.image.load(img_path)
-        new_width = int(self.sprite.get_width()/2)
-        new_height = int(self.sprite.get_height()/2)
-        self.sprite = pygame.transform.scale(self.sprite, (new_width, new_height))
         self.mask = pygame.mask.from_surface(self.sprite)
         self.camera = camera
         self.x_odom = x
@@ -29,7 +26,6 @@ class RobotBin(object):
         x = self.x - self.sprite.get_width()/2
         y = self.y - self.sprite.get_height()/2
         surface.blit(self.sprite, (x - self.camera.x, y - self.camera.y))
-        pygame.draw.rect(surface, (0, 0, 255), (self.x_odom - self.camera.x, self.y_odom - self.camera.y, 10, 10))
 
     def move(self, dx, dy, collision_mask, tolerance = 0.001):
         if abs(dx) < tolerance and abs(dy) < tolerance:
@@ -41,8 +37,8 @@ class RobotBin(object):
         offsety = int(new_y - self.sprite.get_height() / 2 + 0.5)
 
         if collision_mask and collision_mask.overlap_area(self.mask, (offsetx, offsety)) == 0:
-            self.x_odom += new_x - self.x + 0.01 + np.random.normal(scale=abs(dx)*self.x_noise) if dx != 0 else 0
-            self.y_odom += new_y - self.y + 0.02 + np.random.normal(scale=abs(dy)*self.y_noise) if dy != 0 else 0
+            self.x_odom += new_x - self.x + np.random.normal(scale=abs(dx)*self.x_noise) if dx != 0 else 0
+            self.y_odom += new_y - self.y + np.random.normal(scale=abs(dy)*self.y_noise) if dy != 0 else 0
 
             self.x = new_x
             self.y = new_y

@@ -14,8 +14,8 @@ screen = pygame.display.set_mode((1200, 900))
 camera = Camera(screen, 0, 0)
 maze = Maze(0, 0, 'maze.jpg', camera)
 landmarks = [Landmark(random.random()*maze.get_width(), random.random()*maze.get_height(), camera) for _ in xrange(10)]
-negative_landmarks = [Landmark(random.random()*maze.get_width(), random.random()*maze.get_height(), camera) for _ in xrange(0)]
-robot = RobotBin(20, 175, 'car.png', camera, landmarks, negative_landmarks, maze)
+negative_landmarks = [Landmark(random.random()*maze.get_width(), random.random()*maze.get_height(), camera) for _ in xrange(50)]
+robot = RobotBin(34, 263, 'car.png', camera, landmarks, negative_landmarks, maze)
 camera.follow(robot)
 clock = pygame.time.Clock()
 

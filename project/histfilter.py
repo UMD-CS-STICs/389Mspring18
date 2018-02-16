@@ -34,7 +34,7 @@ class HistogramFilter(object):
             h[coord] = ind[0]
         return h
 
-    def correspondance(self, potential_x, potential_y, measurements, odom):   
+    def correspondance(self, potential_x, potential_y, measurements, odom):
         points = [(int(potential_x + x - odom[0]), int(potential_y + (odom[1] - y))) for (x,y) in measurements]
         indices = [ self.correspondence_hash[(x, y)] for (x,y) in points]
         n = len(self.landmarks)
