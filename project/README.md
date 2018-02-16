@@ -42,6 +42,9 @@ However, in addition to not being able to determine the precise location of thes
 ![Equation](http://quicklatex.com/cache3/9f/ql_26c042fbd5c88ff571fcee9048a35b9f_l3.png)  
 where z_1 through z_n are different landmark observations.
 
+Taking the above information into account, the full measurment model can be written:  
+<!---  P(x_t | z_t, m) = \prod p_{hit} * prob(\Delta z_x, z_{noise}) * prob(\Delta z_y, z_{noise}) + p_{false} * p_{uniform} --->
+![Equation](http://quicklatex.com/cache3/4b/ql_b3b983160ea1d142ec9bfe31f190dc4b_l3.png)
 ## Questions for When You're Done
 1. Move the robot around with the arrow keys until it is sufficiently localized. Now move into an area of the maze where it cannot see any landmarks. As you continue to move in this region without landmarks, what happens to the belief? Why?
 2. Restart the simulation until you get a randomly get a maze where the robot can only see one landmark. What does the belief look like after only a couple observations of that one landmark (hint: if things are going to fast for you to see, in sim.py change `clock.tick(10)` to something like `clock.tick(1)` to make time go slower)? Why does this happen? Would this still happen if our correspondence function was able to uniquely identify each landmark? Why?
