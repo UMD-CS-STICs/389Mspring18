@@ -65,14 +65,12 @@ class RobotBin(object):
 
     def detect_landmarks(self):
         detected = []
-        corr = []
         for i, landmark in enumerate(self.landmarks):
             dist = math.sqrt((self.x - landmark.x)**2 + (self.y - landmark.y)**2)
             if 0 < dist < self.max_sense_dist and random.random() < self.phit:
                 x = self.x_odom + landmark.x - self.x + np.random.normal(scale=self.z_noise)
                 y = self.y_odom + landmark.y - self.y + np.random.normal(scale=self.z_noise)
                 detected.append((x, y))
-                corr.append(i)
 
         for landmark in self.negative_landmarks:
             dist = math.sqrt((self.x - landmark.x)**2 + (self.y - landmark.y)**2)
@@ -80,9 +78,8 @@ class RobotBin(object):
                 x = self.x_odom + landmark.x - self.x + np.random.normal(scale=self.z_noise)
                 y = self.y_odom + landmark.y - self.y + np.random.normal(scale=self.z_noise)
                 detected.append((x, y))
-                corr.append(random.randint(0, len(self.landmark)-1))
 
-        return detected, corr
+        return detected
 
 class RobotCar(object):
     def __init__(self, x, y, theta, img_path, camera):
