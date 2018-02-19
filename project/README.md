@@ -1,4 +1,5 @@
 # 1: Histogram Filter
+#### Due: 3/2/18 1:00 PM
 ![](https://i.imgur.com/N6srxnr.png)
 ## Introduction
 In this project, you will write a Histogram Filter for a 2D simulated environment. The simulation consists of a car, a maze to navigate through, and randomly distributed landmarks (shown in green) that the robot can use to localize. The robot's belief distribution is drawn over the simulation (shown above in red). Once the simulation is started you can control the robot's motion with the arrow keys. Once you correctly implement the Histogram Filter your robot should be able to localize itself as you navigate through the maze with the arrow keys. Public tests are provided to help you develop the filter.
