@@ -52,6 +52,20 @@ Taking the above information into account, the full measurment model can be writ
 3. You should notice that the filter sometimes loses the robot. Can you identify any weakenesses in the measurement model or the map that can explain this?
 4. In `sim.py`, comment out `hfilter.motion_update(odom)` so that the filter only performs the measurement update. Move around the maze and try to get the robot to localize. What do you notice? Why is the motion update important?
 
+#### Correspondence Problem
+Let’s say our sensor gave us the reading that there were two landmarks to the right of us. When considering a spot in the map, we see that there are two landmarks to the right of us, so this is looking pretty good! However, imagine that these two landmarks are extremely close to one another, and it’s pretty difficult to see which of our sensed landmarks corresponds to each of the actual landmarks in the map. This is the correspondence problem.
+
+We need to solve this problem because in order to do the sense update, as discussed in the slides, we need to compute the difference between the sensed landmark, and the corresponding actual landmark. 
+
+We solve this problem for you by providing you a correspondence function. It takes in a potential x and y, measurements, and odometer information. It will return a list of indices of landmarks that each of the measurements correspond to.
+
+```python
+corr = correspondance(x, y, measurements, odom)[i]
+map_landmark = self.landmarks[corr[0]]
+measurement_landmak = measurements[0]
+# map_landmark and measurement_landmark correspond to eachother
+```
+
 ## Grading
 * 50% score on the public tests
 * 40% answers to the questions
