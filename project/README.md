@@ -60,7 +60,7 @@ We need to solve this problem because in order to do the sense update, as discus
 We solve this problem for you by providing you a correspondence function. It takes in a potential x and y, measurements, and odometer information. It will return a list of indices of landmarks that each of the measurements correspond to.
 
 ```python
-corr = correspondance(x, y, measurements, odom)[i]
+corr = correspondance(x, y, measurements, odom)
 map_landmark = self.landmarks[corr[0]]
 measurement_landmak = measurements[0]
 # map_landmark and measurement_landmark correspond to eachother
