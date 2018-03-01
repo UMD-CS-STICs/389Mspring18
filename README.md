@@ -48,14 +48,14 @@ By the end of the course, students will understand
 | 1    | Introduction + Probability Intuition |         |                        |
 | 2    | Probability Theory + Python Setup | 1 OUT   | |              |           
 | 3    | Codelab + 2D Monte Carlo     | 1 DUE   |          |
-| 4    | Project Intro + Motion Models              |         |    OUT          |
+| 4    | Project Intro + Motion Models              |         | OUT  |
 | 5    | Kalman Filter 1                     | 2 OUT       |      |
-| 6    | Kalman Filter 2                     | 2 DUE    |             Part 1   |
-| 7    | Particle Filter 1                   | 3 OUT |            |
-| 8    | Particle Filter 2 + Review          |  3 DUE|    Part 2     |
-| 9    | Midterm                             |           |         |
-| 10   | SLAM Overview + Correspondence Problem | 4 OUT   | Part 3 |
-| 11   | Extended Kalman Filter SLAM 1       | 4 DUE, 5 OUT        |      |
+| 6    | Kalman Filter 2      | 2 DUE    |            |
+| 7    | Particle Filter 1                   | 3 OUT |   Part 1 (Thursday)    |
+| 8    | Particle Filter 2 + Review          |  3 DUE|         |
+| 9    | Midterm                             |           |  Part 2       |
+| 10   | SLAM Overview + Correspondence Problem | 4 OUT   | |
+| 11   | Extended Kalman Filter SLAM 1       | 4 DUE, 5 OUT        |  Part 3    |
 | 12   | Extended Kalman Filter SLAM 2       |          |         |
 | 13   | Extended Kalman Filter SLAM 3       |          |         |
 | 14   | FastSLAM 1                          | 5 DUE        |         |
