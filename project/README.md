@@ -19,9 +19,27 @@ The first step to localizing our robot is implemeting the prediction, or move, u
 
 ![equation](http://quicklatex.com/cache3/94/ql_300dda2293cf9d58928b2096f735a594_l3.png)  
 
-where c_x and c_y are constants. These constants are provided for you in the constructor of Histogram Filter as x_noise and y_noise. The reason we do this is to simulate the real world. For example, the robot may do `move_right(1)` programatically, but because of variables like drag, tire pressure, and other environmental factors, we may actually move 1 plus or minus a small amount - this is all we are simulating with the noise. 
+where c_x and c_y are constants. These constants are provided for you in the constructor of Histogram Filter as x_noise and y_noise. The reason we do this is to simulate the real world. For example, the robot may do `move_right(1)` programatically, but because of variables like drag, tire pressure, and other environmental factors, we may actually move 1 plus or minus a small amount - this is all we are simulating with the noise. You need to use ndimage.filters.gaussian_filter to apply the convolution in the move step. In the case that both of your standard deviations (calculated by change * noise) are 0, you should not use this function at all (as your car has apparently not moved). However, if only one of them are 0, you need to set that standard deviation to be a really small number (0.00001, for example) because otherwise, the given function will throw an error.
 
-You must implement the prediction update as a shift and a convolution, as described in [these](https://docs.google.com/presentation/d/1xbxx7Kj1RQj1Ny-c5ZrG0NJAHq1z14D6MhKPa9TY9dQ/edit?usp=sharing) slides. For the shift portion of the update, you will have cells along the border of the histogram that do not have any values to shift into them (imagine the top row of a 3x3 matrix after you shift everything down by 1); fill these cells with 0's.  In the project, you will have to handle your robot moving distances that may not be integers. In these cases, feel free to take the `int(distance_travelled)` as the amount to shift your belief by. You are welcome to use any functions in the SciPy library to accomplish this. For the convolution portion, you will need to pad your belief matrix when you apply your filter (to "noisify" your movement) to it. You must do this by padding the outside of the histogram with zeros so the belief histogram retains the same size. Check out the picture below for a visual explanation of padding with zeros. Use "[scipy.ndimage.filters.gaussian_filter](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.ndimage.filters.gaussian_filter.html)" to accomplish this.
+In the case that both of your standard deviations (calculated by change * noise) are 0, you should not use this (as your car has apparently not moved). However, if only one of them are 0, you need to set that standard deviation to be a really small number (0.00001, for example) because otherwise, the given function will throw an error.
+
+
+
+_____
+
+#### Note: Odometry
+The first time your motion update function is called, the only thing it should do is saved the passed in odom variable. In subsequent calls, it should compute the difference between the saved value and function argument so you can calculate the change in position. With every single call to the move_update, you should save the passed in odom in order to use it in the next call.
+
+```python
+if self.odom is None: # you need to declare self.odom = None in the __init__ function
+    self.odom = odom
+    return
+# the rest of the code goes here
+self.odom = odom
+```
+_____
+
+You must implement the prediction update as a shift and a convolution, as described in [these](https://docs.google.com/presentation/d/1xbxx7Kj1RQj1Ny-c5ZrG0NJAHq1z14D6MhKPa9TY9dQ/edit?usp=sharing) slides. For the shift portion of the update, you will have cells along the border of the histogram that do not have any values to shift into them (imagine the top row of a 3x3 matrix after you shift everything down by 1); fill these cells with 0's.  In the project, you will have to handle your robot moving distances that may not be integers. In these cases, feel free to take the `int(distance_travelled)` as the amount to shift your belief by. For the convolution portion, you will need to pad your belief matrix when you apply your filter (to "noisify" your movement) to it. You must do this by padding the outside of the histogram with zeros so the belief histogram retains the same size. Check out the picture below for a visual explanation of padding with zeros. Use "[scipy.ndimage.filters.gaussian_filter](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.ndimage.filters.gaussian_filter.html)" to accomplish this. To shift, use ndimage.shift. To convolve with a gaussian filter, use ndimage.filters.gaussian_filter with mode='constant' (for padding with zeros).
 
 ![padding](http://machinelearninguru.com/_images/topics/computer_vision/basics/convolution/5.JPG)
 
@@ -64,6 +82,14 @@ corr = correspondance(x, y, measurements, odom)
 map_landmark = self.landmarks[corr[0]]
 measurement_landmak = measurements[0]
 # map_landmark and measurement_landmark correspond to eachother
+```
+
+#### Note: Resolution
+Remember that the point of the histogram filter is to separate our world into discrete buckets. This means that when we iterate through our belief array (to sense, for example), we are not iterating through every single point in our world. We are iterating through every single bucket. Each bucket is sectioned off as a self.resolution by self.resolution square.
+
+```python
+dx = odom[0] - self.odom[0] # change in x in our world
+dx = int(odom[0] - self.odom[0] / self.resolution) # the number of grid cells we move in the belief array
 ```
 
 ## Grading
