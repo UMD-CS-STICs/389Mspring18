@@ -89,7 +89,7 @@ Remember that the point of the histogram filter is to separate our world into di
 
 ```python
 dx = odom[0] - self.odom[0] # change in x in our world
-dx = int(odom[0] - self.odom[0] / self.resolution) # the number of grid cells we move in the belief array
+dx = int((odom[0] - self.odom[0]) / self.resolution) # the number of grid cells we move in the belief array
 ```
 
 ## Grading
