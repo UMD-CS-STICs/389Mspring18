@@ -6,7 +6,7 @@ from landmark import Landmark
 
 def test_move():
     robot = RobotBin(20, 175, 'car.png', None, [], [], None)
-    hfilter = HistogramFilter(1, 6, 6, [], robot)
+    hfilter = HistogramFilter(1, 6, 6, [Landmark(0, 0, None)], robot)
     hfilter.belief = np.array(
         [[ 1. ,  1. ,  1. ,  1. ,  1. ,  1. ],
          [ 1. ,  1. ,  1. ,  1. ,  2. ,  4. ],
@@ -37,7 +37,7 @@ def test_sense():
     hfilter = HistogramFilter(1, 10, 10, landmarks, robot)
     hfilter.belief = np.zeros((6, 6)) + (float(1) / 36)
     hfilter.z_noise = 0.5
-    hfilter.sense_update([(0, 1)], [0], (0, 0))
+    hfilter.sense_update([(0, 1)], (0, 0))
 
     correct = np.array(
         [[1.07307687e-06, 1.07126166e-04, 2.14493697e-03, 5.82993552e-03, 2.14493697e-03, 1.07126166e-04],
