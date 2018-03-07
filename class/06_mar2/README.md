@@ -1,0 +1,1 @@
+We had no class today because of inclement weather. Find the presentation we would have gone over [here](https://docs.google.com/presentation/d/1QeDjCuyh11Ft6zdWZurCXbkVUBNTdaG0eRdgsGg2v_w/edit?usp=sharing).
