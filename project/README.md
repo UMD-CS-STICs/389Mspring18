@@ -46,7 +46,7 @@ The robot is equiped with sensors that can detect the (x, y) positions of landma
 <!--- (y_{observed} &= y_{true} + \mathcal{N}(0, z_{noise}) --->
 ![Equation](http://quicklatex.com/cache3/c9/ql_d17bef13145f5c9e6976b974c6b11bc9_l3.png)
 
-where `z_noise` is a constant provided to you in histfilter.py. It should follow from the above equations that the difference between `x_observed` and `x_true` should be normally distributed with a mean of 0 and a standard deviation of `z_noise`. Note that the probability density function of the gaussian with 0 mean is  
+where `z_noise` is a constant provided to you in histfilter.py. It should follow from the above equations that the difference between `x_observed` and `x_true` should be normally distributed with a mean of 0 and a variance of `z_noise`. Note that the probability density function of the gaussian with 0 mean is  
 <!--- f(x | \sigma^2) = \frac{1}{{\sqrt {2\pi\sigma^2 } }}e^{{{ - \left( {x} \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}} --->
 ![Equation](http://quicklatex.com/cache3/40/ql_a84e9ae2baa944fe9b81ae7fca5e3d40_l3.png)  
 Which we will now denote as `prob(x, sigma)`. Since the x and y direction are corrupted independently, it follows that
