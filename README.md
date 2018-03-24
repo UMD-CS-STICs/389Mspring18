@@ -51,15 +51,15 @@ By the end of the course, students will understand
 | 4    | Project Intro + Motion Models              |         | OUT  |
 | 5    | Kalman Filter 1                     | 2 OUT       |      |
 | 6    | WIND DAY      |     |            |
-| 7    | Kalman Filter 2 + Codelab                   | 2 DUE, 3 OUT |   Part 1 (Thursday)    |
-| 8    | Particle Filters + Review          |  3 DUE|         |
+| 7    | Kalman Filter 2 + Codelab                   | 2 DUE |   Part 1 (Thursday)    |
+| 8    | CANCELLED CLASS (Sickness + Spring Break)   | |         |
 | -    | Spring Break         |   |         |
-| 9    | Midterm                             |           |  Part 2       |
-| 10   | SLAM Overview + Correspondence Problem | 4 OUT   | |
-| 11   | Extended Kalman Filter SLAM 1       | 4 DUE, 5 OUT        |  Part 3    |
-| 12   | Extended Kalman Filter SLAM 2       |          |         |
+| 9    | Midterm                             |           |   |
+| 10   | SLAM Overview + Correspondence Problem | 3 OUT   | Part 2 |
+| 11   | Extended Kalman Filter SLAM 1       | 3 DUE        |      |
+| 12   | Extended Kalman Filter SLAM 2       |          |   Part 3     |
 | 13   | Extended Kalman Filter SLAM 3       |          |         |
-| 14   | FastSLAM 1                          | 5 DUE        |         |
+| 14   | FastSLAM 1                          |         |         |
 | 15   | FastSLAM 2                          |          | Part 4 |
 
 ## Project
