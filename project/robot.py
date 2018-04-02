@@ -1,8 +1,8 @@
-'''Robot.py simulates noisy robot motion and measurement. Do not modify this file'''
 import pygame
 import numpy as np
 import math
 import random
+from kalmanfilter import KalmanFilter
 
 class RobotBin(object):
     def __init__(self, x, y, img_path, camera, landmarks, negative_landmarks, maze):
@@ -121,3 +121,88 @@ class RobotCar(object):
             self.move(0, math.pi / 20, maze.mask)
         if pressed[pygame.K_RIGHT]:
             self.move(0, -math.pi / 20, maze.mask)
+
+class RobotSimple(object):
+    def __init__(self, x, y, vx, vy, img_path, camera):
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.sprite = pygame.image.load(img_path)
+        self.mask = pygame.mask.from_surface(self.sprite)
+        self.camera = camera
+        self.pedestrians = []
+
+    def controls(self):
+        pressed = pygame.key.get_pressed()
+        if pressed[pygame.K_UP]:
+            self.move(0, -20)
+        if pressed[pygame.K_DOWN]:
+            self.move(0, 20)
+        if pressed[pygame.K_LEFT]:
+            self.move(-20, 0)
+        if pressed[pygame.K_RIGHT]:
+            self.move(20, 0)
+
+    def update(self, dt, states):
+        old_vx, old_vy = self.vx, self.vy
+        new_vx, new_vy = self.search_vel(states, 5, dt, 10)
+        self.vx, self.vy = new_vx, new_vy
+        self.x += self.vx * dt
+        self.y += self.vy * dt
+
+    def obstacle_cost(self, x, inflation):
+        return math.exp(-x**2 / (2*inflation))
+
+    def search_vel(self, obstacles, dv, dt, N):
+        best_vx = self.vx
+        best_vy = self.vy
+        best_cost = float('inf')
+        for vx in np.arange(self.vx-N*dv, self.vx+(N+1)*dv, dv):
+            if vx < -100:
+                continue
+            if vx > 600:
+                break
+            for vy in np.arange(self.vy-N*dv, self.vy+(N+1)*dv, dv):
+                if vy < -40:
+                    continue
+                if vy > 40:
+                    break
+                x = vx*dt
+                y = vy*dt
+                cost = 10*abs(self.y + y) + 0.1*abs(300-vx)
+                for i in obstacles:
+                    obs_x = obstacles[i][0][0] + obstacles[i][2][0] * dt
+                    obs_y = obstacles[i][1][0] + obstacles[i][3][0] * dt
+                    d = math.sqrt((x - obs_x)**2 + (y - obs_y)**2)
+                    cost += 20000*self.obstacle_cost(d, 700)
+
+                if cost < best_cost:
+                    best_cost = cost
+                    best_vx = vx
+                    best_vy = vy
+        return best_vx, best_vy
+
+    def move(self, dx, dy, tolerance = 0.001):
+        new_x = self.x + dx
+        new_y = self.y + dy
+        self.x = new_x
+        self.y = new_y
+
+    def Q(self):
+        return np.array(
+            [[1000*np.random.rand(),0],
+            [0,1000*np.random.rand()]]
+        )
+
+    def get_pedestrian_measurements(self):
+        cov = self.Q()
+        measurements = {}
+        for p in self.pedestrians:
+            measurements[p.id] = np.random.multivariate_normal([p.x - self.x, p.y - self.y], cov, size=1).T
+        return measurements, cov
+
+    def blit(self, surface):
+        x = self.x - self.sprite.get_width()/2
+        y = self.y - self.sprite.get_height()/2
+        surface.blit(self.sprite, (x - self.camera.x, y - self.camera.y))
