@@ -55,7 +55,7 @@ By the end of the course, students will understand
 | 8    | CANCELLED CLASS (Sickness + Spring Break)   | |         |
 | -    | Spring Break         |   |         |
 | 9    | Midterm                             |           |   |
-| 10   | SLAM Overview + Correspondence Problem | 3 OUT   |  |
+| 10   | Particle Filters | 3 OUT   |  |
 | 11   | Extended Kalman Filter SLAM 1       | 3 DUE        |   Part 2   |
 | 12   | Extended Kalman Filter SLAM 2       |          |        |
 | 13   | Extended Kalman Filter SLAM 3       |          |   Part 3      |
