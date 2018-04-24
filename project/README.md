@@ -10,7 +10,9 @@ TBA
 
 ## Grading
 35% Code Inspection
+
 35% Visual Inspection
+
 30% Written Responses
 
 ## Submission
