@@ -56,11 +56,11 @@ By the end of the course, students will understand
 | -    | Spring Break         |   |         |
 | 9    | Midterm                             |           |   |
 | 10   | Particle Filters | 3 OUT   |  |
-| 11   | Extended Kalman Filter SLAM 1       | 3 DUE        |   Part 2   |
-| 12   | Extended Kalman Filter SLAM 2       |          |        |
-| 13   | Extended Kalman Filter SLAM 3       |          |   Part 3      |
-| 14   | FastSLAM 1                          |         |         |
-| 15   | FastSLAM 2                          |          | Part 4 |
+| 11   | Kalman Filter SLAM 1       | 3 DUE        |   Part 2   |
+| 12   | Kalman Filter SLAM 2       |          |        |
+| 13   | Extended Kalman Filter SLAM       |          |         |
+| 14   | FastSLAM 1                          |         |  Part 3       |
+| 15   | FastSLAM 2                          |          |  |
 
 ## Project
 
