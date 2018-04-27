@@ -48,7 +48,7 @@ def test_prediction():
             [0.32, 0.66, 4., 1],
             [2, 0, 1, 5.]])}
     kf.prediction(np.array([[1.2], [-0.4]]))
-    ccorrect_states = {1: np.array([[1.416],
+    correct_states = {1: np.array([[1.416],
                                    [2.11022222],
                                    [3.46],
                                    [0.31333333]]),
