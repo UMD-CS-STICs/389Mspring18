@@ -1,5 +1,5 @@
 # Final: Kalman Filter SLAM
-#### Due: 5/4/18 @ 11:59 PM
+#### Code Due: 5/4/18 @ 11:59 PM, Written Responses Due: 5/10 @ 11:59 PM
 
 Please complete the code in `kfslam.py`. All directions are in there.
 
