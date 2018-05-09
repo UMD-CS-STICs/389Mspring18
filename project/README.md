@@ -15,7 +15,7 @@ You can test your code with `python sim3.py` when in the virtual environment.
 How certain could the robot possibly be about its location if it used this map to localize? In other words, what is the lower bound for the covariance, and why?
 6. Given sufficient time and under the correct conditions, KF SLAM will be equally certain about the locations of all landmarks. Given the map above, what is the lower bound on how certain each landmark can be?
 7. When the robot first observes a new landmark, what is the lower bound on how certain the robot can be of the landmark's position?
-8. Tradional SLAM algorithms are passive, meaning they just process the information the robot has available and don't inlfuence the robot's motion decisions. Explain how an "active" SLAM algorithm, that influenced exploration decisions, could improve the time it would take the algorithm to obtain a reasonable estimate for all the landmarks.
+8. Tradional SLAM algorithms are passive, meaning they just process the information the robot has available and don't influence the robot's motion decisions. Explain how an "active" SLAM algorithm, in which the sense steps actually influence how the robot moves, could improve the time it would take the algorithm to obtain a reasonable estimate for all the landmarks.
 
 
 ## Grading
